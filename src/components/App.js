@@ -10,7 +10,8 @@ import handleData from "./utils/handleData"
 export default function App() {
   const [dir, setDir] = useState([])
   const [options,setOptions] = useState([])
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState({})
+  const [tableData,setTableData] = useState([])
   useEffect(()=>{
     axios.get("https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/diretorias/")
     .then((response)=>{
@@ -30,7 +31,9 @@ export default function App() {
     axios.get(`https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/smeescolas/${selected?.initials}`)
     .then((response)=>{
       //console.log(response.data)
-      handleData(response.data.results)
+      const filteredData = handleData(response.data.results)
+      console.log(filteredData)
+    setTableData(filteredData)
     })
   },[selected])
   
@@ -47,7 +50,7 @@ export default function App() {
       onChange={setSelected}
       options={options}
      />
-     <Table2/>
+     <Table2 data={tableData}/>
 
     </div>
     </>

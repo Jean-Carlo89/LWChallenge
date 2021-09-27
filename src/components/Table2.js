@@ -1,8 +1,16 @@
 import styled from "styled-components"
 
 
-export default function Table2(){
-   const arrayWithData = [
+export default function Table2({data}){
+  
+    const types = data[2]
+   console.log('types')
+   console.log(data)
+   console.log(types)
+  
+ 
+   
+    const arrayWithData = [
     {
         id:1,
       tipo: "Educação infantil",
@@ -15,20 +23,20 @@ export default function Table2(){
       lessThan2500:"34",
       lessThan2000:"344",
       moreThan2500: "11"
+    },
+    {
+      id:2,
+        tipo: "CEUs",
+      NoStudents: "6",
+      lessThan250:"233",
+      lessThan500:"5645",
+      lessThan1000:"5456",
+      lessThan1500:"456456",
+      lessThan2000:"56",
+      lessThan2500:"34",
+      lessThan2000:"344",
+      moreThan2500: "11"
     }
-    // {
-    //   id:2,
-    //     tipo: "CEUs",
-    //   NoStudents: "6",
-    //   lessThan250:"233",
-    //   lessThan500:"5645",
-    //   lessThan1000:"5456",
-    //   lessThan1500:"456456",
-    //   lessThan2000:"56",
-    //   lessThan2500:"34",
-    //   lessThan2000:"344",
-    //   moreThan2500: "11"
-    // }
   ]
    
    
