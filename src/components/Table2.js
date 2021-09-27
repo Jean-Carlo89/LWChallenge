@@ -85,8 +85,6 @@ th{
      display:flex;
      
      border: 1px solid gray;
-    // margin-right:30px;
-    // justify-content:center; 
  }
  
  td{
