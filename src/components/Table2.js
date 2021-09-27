@@ -71,6 +71,7 @@ export default function Table2({data}){
       <th>1501 a 2000 estudantes</th>
       <th>2001 a 2500 estudantes</th>
       <th>Mais de 2500 estudantes</th>
+      <th>Soma por tipo</th>
     </tr>
   </thead>
   <tbody>
@@ -86,6 +87,7 @@ export default function Table2({data}){
           <td>{ !item.info["1501 a 2000 estudantes"] ? 0 : item.info["1501 a 2000 estudantes"]}</td>
           <td>{ !item.info["2001 a 2500 estudantes"] ? 0 : item.info["2001 a 2500 estudantes"]}</td>
           <td>{ !item.info["Mais de 2500 estudantes"] ? 0 : item.info["Mais de 2500 estudantes"]}</td>
+          <td className="white">{ !item.info["totalBytype"] ? 0 : item.info["totalBytype"]}</td>
         </tr>
       );
     })}
@@ -127,6 +129,10 @@ th{
      display:flex;
      
      border: 1px solid gray;
+ }
+
+ .white{
+  background-color: white
  }
  
  td{

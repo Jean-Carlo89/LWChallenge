@@ -33,6 +33,7 @@ export default function App() {
       //console.log(response.data)
       const filteredData = handleData(response.data.results)
      // console.log(filteredData)
+     
     setTableData(filteredData)
     })
   },[selected])
