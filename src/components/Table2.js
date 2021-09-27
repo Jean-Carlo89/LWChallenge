@@ -2,61 +2,23 @@ import styled from "styled-components"
 
 
 export default function Table2({data}){
+  console.log(data)
   const info = data[0]
   const totals = data[1]
-  
-  console.log(info)
-  console.log(totals) 
-  
- 
-  
-    const arrayWithData = [
-    {
-        id:1,
-      tipo: "Educação infantil",
-      NoStudents: "4",
-      lessThan250:"233",
-      lessThan500:"5645",
-      lessThan1000:"5456",
-      lessThan1500:"456456",
-      lessThan2000:"56",
-      lessThan2500:"34",
-      lessThan2000:"344",
-      moreThan2500: "11"
+  console.log(totals)
+  let getSum;
+  if(totals!==undefined){
+   getSum = Object.keys(totals)
+  }
+
+  let totalSum=0;
+
+  getSum?.forEach((item)=>{
+    if(totals[item]!=="Total por estudante"){
+      totalSum+=totals[item]
     }
-  ]
+  })
 
-
-   
-  //   const arrayWithData = [
-  //   {
-  //       id:1,
-  //     tipo: "Educação infantil",
-  //     NoStudents: "4",
-  //     lessThan250:"233",
-  //     lessThan500:"5645",
-  //     lessThan1000:"5456",
-  //     lessThan1500:"456456",
-  //     lessThan2000:"56",
-  //     lessThan2500:"34",
-  //     lessThan2000:"344",
-  //     moreThan2500: "11"
-  //   },
-  //   {
-  //     id:2,
-  //       tipo: "CEUs",
-  //     NoStudents: "6",
-  //     lessThan250:"233",
-  //     lessThan500:"5645",
-  //     lessThan1000:"5456",
-  //     lessThan1500:"456456",
-  //     lessThan2000:"56",
-  //     lessThan2500:"34",
-  //     lessThan2000:"344",
-  //     moreThan2500: "11"
-  //   }
-  // ]
-   
    
     return(
         <Table>
@@ -71,26 +33,44 @@ export default function Table2({data}){
       <th>1501 a 2000 estudantes</th>
       <th>2001 a 2500 estudantes</th>
       <th>Mais de 2500 estudantes</th>
-      <th>Soma por tipo</th>
+      <th>Total de unidades escolares por tipo</th>
     </tr>
   </thead>
   <tbody>
   {info?.map(item => {
       return (
         <tr key={item.info.id}>
-           <td>{ item.type }</td>
-           <td>{ !item.info["Sem estudantes cadastrados"] ? 0 : item.info["Sem estudantes cadastrados"]}</td>
-          <td>{ !item.info["1 a 250 estudantes"] ? 0 : item.info["1 a 250 estudantes"]}</td>
-          <td>{ !item.info["251 a 500 estudantes"] ? 0 : item.info["251 a 500 estudantes"]}</td>
-          <td>{ !item.info["501 a 1000 estudantes"] ? 0 : item.info["501 a 1000 estudantes"]}</td>
-          <td>{ !item.info["1001 a 1500 estudantes"] ? 0 : item.info["1001 a 1500 estudantes"]}</td>
-          <td>{ !item.info["1501 a 2000 estudantes"] ? 0 : item.info["1501 a 2000 estudantes"]}</td>
-          <td>{ !item.info["2001 a 2500 estudantes"] ? 0 : item.info["2001 a 2500 estudantes"]}</td>
-          <td>{ !item.info["Mais de 2500 estudantes"] ? 0 : item.info["Mais de 2500 estudantes"]}</td>
-          <td className="white">{ !item.info["totalBytype"] ? 0 : item.info["totalBytype"]}</td>
+           <TableData>{ item.type }</TableData>
+           <TableData>{!item.info["Sem estudantes cadastrados"] ? 0 : item.info["Sem estudantes cadastrados"]}</TableData>
+          <TableData>{ !item.info["1 a 250 estudantes"] ? 0 : item.info["1 a 250 estudantes"]}</TableData>
+          <TableData>{ !item.info["251 a 500 estudantes"] ? 0 : item.info["251 a 500 estudantes"]}</TableData>
+          <TableData>{ !item.info["501 a 1000 estudantes"] ? 0 : item.info["501 a 1000 estudantes"]}</TableData>
+          <TableData>{ !item.info["1001 a 1500 estudantes"] ? 0 : item.info["1001 a 1500 estudantes"]}</TableData>
+          <TableData>{ !item.info["1501 a 2000 estudantes"] ? 0 : item.info["1501 a 2000 estudantes"]}</TableData>
+          <TableData>{ !item.info["2001 a 2500 estudantes"] ? 0 : item.info["2001 a 2500 estudantes"]}</TableData>
+          <TableData>{ !item.info["Mais de 2500 estudantes"] ? 0 : item.info["Mais de 2500 estudantes"]}</TableData>
+          <TableData >{ !item.info["totalBytype"] ? 0 : item.info["totalBytype"]}</TableData>
         </tr>
       );
     })}
+   
+   {totals!==undefined 
+   ?
+    <tr>
+      <TableData inputColor={true}>Total de unidades escolares por número de estudantes</TableData>
+      <TableData inputColor={true}> {!totals["Sem estudantes cadastrados"] ? 0 : totals["Sem estudantes cadastrados"]}</TableData>
+      <TableData inputColor={true}> {!totals["1 a 250 estudantes"] ? 0 : totals["1 a 250 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["251 a 500 estudantes"] ? 0 : totals["251 a 500 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["501 a 1000 estudantes"] ? 0 : totals["501 a 1000 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["1001 a 1500 estudantes"] ? 0 : totals["1001 a 1500 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["1501 a 2000 estudantes"] ? 0 : totals["1501 a 2000 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["2001 a 2500 estudantes"] ? 0 : totals["2001 a 2500 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["Mais de 2500 estudantes"] ? 0 : totals["Mais de 2500 estudantes"]}</TableData>
+      <TableData inputColor={true}> {totalSum}</TableData>
+    </tr>
+    :null
+   }
+    
    
     {/* {arrayWithData?.map(item => {
       return (
@@ -135,7 +115,7 @@ th{
   background-color: white
  }
  
- td{
+ /* td{
     
     display:flex;
      background-color: #D7F0FF;
@@ -144,5 +124,20 @@ th{
      width: 180px;
     
      border: 1px solid gray;
- }
+ } */
+
+
+ 
+`
+
+const TableData = styled.td`
+      display:flex;
+     //background-color:white;
+     background-color: ${props => props.inputColor ? "white"  :"#D7F0FF"};
+     justify-content:center;
+     align-items: center;
+     width: 180px;
+    
+     border: 1px solid gray;
+
 `

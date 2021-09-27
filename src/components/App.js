@@ -10,7 +10,7 @@ import handleData from "./utils/handleData"
 export default function App() {
   const [dir, setDir] = useState([])
   const [options,setOptions] = useState([])
-  const [selected, setSelected] = useState({})
+  const [selected, setSelected] = useState(null)
   const [tableData,setTableData] = useState([])
   useEffect(()=>{
     axios.get("https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/diretorias/")
@@ -28,6 +28,8 @@ export default function App() {
   },[])
 
   useEffect(()=>{
+
+    if(selected===null) return
     axios.get(`https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/smeescolas/${selected?.initials}`)
     .then((response)=>{
       //console.log(response.data)
