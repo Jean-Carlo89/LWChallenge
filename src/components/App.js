@@ -32,7 +32,7 @@ export default function App() {
     .then((response)=>{
       //console.log(response.data)
       const filteredData = handleData(response.data.results)
-      console.log(filteredData)
+     // console.log(filteredData)
     setTableData(filteredData)
     })
   },[selected])

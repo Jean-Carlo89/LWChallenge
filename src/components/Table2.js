@@ -2,14 +2,14 @@ import styled from "styled-components"
 
 
 export default function Table2({data}){
+  const info = data[0]
+  const totals = data[1]
   
-    const types = data[2]
-   console.log('types')
-   console.log(data)
-   console.log(types)
+  console.log(info)
+  console.log(totals) 
   
  
-   
+  
     const arrayWithData = [
     {
         id:1,
@@ -23,21 +23,39 @@ export default function Table2({data}){
       lessThan2500:"34",
       lessThan2000:"344",
       moreThan2500: "11"
-    },
-    {
-      id:2,
-        tipo: "CEUs",
-      NoStudents: "6",
-      lessThan250:"233",
-      lessThan500:"5645",
-      lessThan1000:"5456",
-      lessThan1500:"456456",
-      lessThan2000:"56",
-      lessThan2500:"34",
-      lessThan2000:"344",
-      moreThan2500: "11"
     }
   ]
+
+
+   
+  //   const arrayWithData = [
+  //   {
+  //       id:1,
+  //     tipo: "Educação infantil",
+  //     NoStudents: "4",
+  //     lessThan250:"233",
+  //     lessThan500:"5645",
+  //     lessThan1000:"5456",
+  //     lessThan1500:"456456",
+  //     lessThan2000:"56",
+  //     lessThan2500:"34",
+  //     lessThan2000:"344",
+  //     moreThan2500: "11"
+  //   },
+  //   {
+  //     id:2,
+  //       tipo: "CEUs",
+  //     NoStudents: "6",
+  //     lessThan250:"233",
+  //     lessThan500:"5645",
+  //     lessThan1000:"5456",
+  //     lessThan1500:"456456",
+  //     lessThan2000:"56",
+  //     lessThan2500:"34",
+  //     lessThan2000:"344",
+  //     moreThan2500: "11"
+  //   }
+  // ]
    
    
     return(
@@ -56,7 +74,23 @@ export default function Table2({data}){
     </tr>
   </thead>
   <tbody>
-    {arrayWithData.map(item => {
+  {info?.map(item => {
+      return (
+        <tr key={item.info.id}>
+           <td>{ item.type }</td>
+           <td>{ !item.info["Sem estudantes cadastrados"] ? 0 : item.info["Sem estudantes cadastrados"]}</td>
+          <td>{ !item.info["1 a 250 estudantes"] ? 0 : item.info["1 a 250 estudantes"]}</td>
+          <td>{ !item.info["251 a 500 estudantes"] ? 0 : item.info["251 a 500 estudantes"]}</td>
+          <td>{ !item.info["501 a 1000 estudantes"] ? 0 : item.info["501 a 1000 estudantes"]}</td>
+          <td>{ !item.info["1001 a 1500 estudantes"] ? 0 : item.info["1001 a 1500 estudantes"]}</td>
+          <td>{ !item.info["1501 a 2000 estudantes"] ? 0 : item.info["1501 a 2000 estudantes"]}</td>
+          <td>{ !item.info["2001 a 2500 estudantes"] ? 0 : item.info["2001 a 2500 estudantes"]}</td>
+          <td>{ !item.info["Mais de 2500 estudantes"] ? 0 : item.info["Mais de 2500 estudantes"]}</td>
+        </tr>
+      );
+    })}
+   
+    {/* {arrayWithData?.map(item => {
       return (
         <tr key={item.id}>
            <td>{ item.tipo }</td>
@@ -70,7 +104,7 @@ export default function Table2({data}){
           <td>{ item.moreThan2500}</td>
         </tr>
       );
-    })}
+    })} */}
   </tbody>
 </Table>
     );
