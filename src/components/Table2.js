@@ -75,14 +75,16 @@ font-size: 30px;
  
 th{
     display:flex;
-     margin-right:30px;
+     border: 1px solid gray;
      justify-content:center;
      width: 180px;
+     align-items: center;
 }
 
  tr{
      display:flex;
-     margin: 5px 0;
+     
+     border: 1px solid gray;
     // margin-right:30px;
     // justify-content:center; 
  }
@@ -90,9 +92,11 @@ th{
  td{
     
     display:flex;
-     margin-right:30px;
+     background-color: #D7F0FF;
      justify-content:center;
      align-items: center;
      width: 180px;
+    
+     border: 1px solid gray;
  }
 `
