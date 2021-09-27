@@ -2,7 +2,8 @@ import {useState,useEffect} from 'react'
 import Header from "./header"
 import axios from "axios"
 import GlobalStyle from './GlobalStyles';
-
+import Table from "./Table"
+import Table2 from "./Table2"
 export default function App() {
 
 
@@ -19,6 +20,8 @@ export default function App() {
     <GlobalStyle />
     <div className="App">
      <Header/>
+     {/* <Table/> */}
+     <Table2/>
 
     </div>
     </>
