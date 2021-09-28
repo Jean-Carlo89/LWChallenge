@@ -24,16 +24,16 @@ export default function Table2({data}){
         <Table>
   <thead>
     <tr>
-      <th>tipo</th>
-      <th>Sem estudantes cadastrados</th>
-      <th>1 a 250 estudantes</th>
-      <th>251 a 500 estudantes</th>
-      <th>501 a 1000 estudantes</th>
-      <th>1001 a 1500 estudantes</th>
-      <th>1501 a 2000 estudantes</th>
-      <th>2001 a 2500 estudantes</th>
-      <th>Mais de 2500 estudantes</th>
-      <th>Total de unidades escolares por tipo</th>
+      <TableData inputColor={true}>tipo</TableData>
+      <TableData inputColor={true}>Sem estudantes cadastrados</TableData>
+      <TableData inputColor={true}>1 a 250 estudantes</TableData>
+      <TableData inputColor={true}>251 a 500 estudantes</TableData>
+      <TableData inputColor={true}>501 a 1000 estudantes</TableData>
+      <TableData inputColor={true}>1001 a 1500 estudantes</TableData>
+      <TableData inputColor={true}> 1501 a 2000 estudantes</TableData>
+      <TableData inputColor={true}>2001 a 2500 estudantes</TableData>
+      <TableData inputColor={true}>Mais de 2500 estudantes</TableData>
+      <TableData inputColor={true}>Total de unidades escolares por tipo</TableData>
     </tr>
   </thead>
   <tbody>
@@ -95,13 +95,14 @@ export default function Table2({data}){
 const Table = styled.table`
 border-collapse: separate;
 -webkit-border-horizontal-spacing:20px;
-font-size: 30px;
+margin-bottom: 100px;
+font-size: 20px;
  
 th{
     display:flex;
      border: 1px solid gray;
      justify-content:center;
-     width: 180px;
+     width: 150px;
      align-items: center;
 }
 
@@ -136,7 +137,7 @@ const TableData = styled.td`
      background-color: ${props => props.inputColor ? "white"  :"#D7F0FF"};
      justify-content:center;
      align-items: center;
-     width: 180px;
+     width: 150px;
     
      border: 1px solid gray;
 

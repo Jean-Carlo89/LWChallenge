@@ -1,11 +1,14 @@
 import {useState,useEffect} from 'react'
-import Header from "./header"
+import styled from "styled-components"
+import Header from "./Header"
 import axios from "axios"
 import GlobalStyle from './GlobalStyles';
 import Table from "./Table"
 import Table2 from "./Table2"
 import Select from 'react-select';
+import Select2 from "./Select2"
 import handleData from "./utils/handleData"
+import Footer from "./Footer"
 
 export default function App() {
   const [dir, setDir] = useState([])
@@ -39,25 +42,66 @@ export default function App() {
     setTableData(filteredData)
     })
   },[selected])
+
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? 'red' : 'blue',
+      width: state.selectProps.width,
+      padding: 20,
+    }),
+  }
   
   return (
    <>
     <GlobalStyle />
-    <div className="App">
+    <Container className="App">
      <Header/>
-     <button onClick={()=>console.log(options)}> options </button>
-     <button onClick={()=>console.log(selected)}> selected </button>
+     {/* <Button onClick={()=>console.log(options)}> options </Button>
+     <Button onClick={()=>console.log(selected)}> selected </Button> */}
      {/* <Table/> */}
-     <Select
-      
+     {/* <Select
+      style={customStyles}
+      width='200px'
       onChange={setSelected}
       options={options}
+     /> */}
+     <Select2
+     selected={selected}
+     setSelected={setSelected}
+     options={options}
      />
      <Table2 data={tableData}/>
 
-    </div>
+     <Footer/>
+
+    </Container>
     </>
   );
+
+
+  
 }
+
+const Container = styled.div`
+min-height: calc(100vh - 160px);
+height: 100%;
+margin-top: 80px;
+min-width: 800px;
+width: 100vw;
+display: flex;
+margin-bottom: 80px;
+flex-direction: column;
+overflow-y: scroll;
+align-items: center;
+
+border: 1px solid red;
+`
+const Button = styled.button`
+margin-top:80px;
+`
+
+
 
 
