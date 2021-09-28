@@ -70,23 +70,6 @@ export default function Table2({data}){
     </tr>
     :null
    }
-    
-   
-    {/* {arrayWithData?.map(item => {
-      return (
-        <tr key={item.id}>
-           <td>{ item.tipo }</td>
-          <td>{ item.NoStudents }</td>
-          <td>{ item.lessThan250 }</td>
-          <td>{ item.lessThan500 }</td>
-          <td>{ item.lessThan1000}</td>
-          <td>{ item.lessThan1500}</td>
-          <td>{ item.lessThan2000}</td>
-          <td>{ item.lessThan2500}</td>
-          <td>{ item.moreThan2500}</td>
-        </tr>
-      );
-    })} */}
   </tbody>
 </Table>
     );

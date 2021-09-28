@@ -10,11 +10,15 @@ import Select2 from "./Select2"
 import handleData from "./utils/handleData"
 import Footer from "./Footer"
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
 export default function App() {
   const [dir, setDir] = useState([])
   const [options,setOptions] = useState([])
   const [selected, setSelected] = useState(null)
   const [tableData,setTableData] = useState([])
+  const [isLoading,setIsLoading] = useState(true)
   useEffect(()=>{
     axios.get("https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/diretorias/")
     .then((response)=>{
@@ -30,16 +34,17 @@ export default function App() {
     })
   },[])
 
-  useEffect(()=>{
+  useEffect( ()=>{
 
     if(selected===null) return
-    axios.get(`https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/smeescolas/${selected?.initials}`)
+    setIsLoading(true)
+   axios.get(`https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/smeescolas/${selected?.initials}`)
     .then((response)=>{
-      //console.log(response.data)
+
       const filteredData = handleData(response.data.results)
-     // console.log(filteredData)
-     
+    
     setTableData(filteredData)
+    setIsLoading(false)
     })
   },[selected])
 
@@ -58,22 +63,30 @@ export default function App() {
     <GlobalStyle />
     <Container className="App">
      <Header/>
-     {/* <Button onClick={()=>console.log(options)}> options </Button>
-     <Button onClick={()=>console.log(selected)}> selected </Button> */}
-     {/* <Table/> */}
-     {/* <Select
-      style={customStyles}
-      width='200px'
-      onChange={setSelected}
-      options={options}
-     /> */}
      <Select2
      selected={selected}
      setSelected={setSelected}
      options={options}
      />
-     <Table2 data={tableData}/>
+     {  
+        selected!==null
+        ?
+     
+          isLoading 
+          ?
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+              />
+          :
+          <Table2 data={tableData}/>
 
+        :
+        null
+      }
+          
      <Footer/>
 
     </Container>

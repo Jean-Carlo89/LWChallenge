@@ -61,7 +61,6 @@ const DropDownList = styled("ul")`
 
 const ListItem = styled("li")`
   list-style: none;
-  
   z-index: 2;
   margin-bottom: 0.8em;
 `;
@@ -70,20 +69,17 @@ const ListItem = styled("li")`
 
 export default function Select2(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
   const options = props.options
-  console.log(props.options)
   const toggling = () => setIsOpen(!isOpen);
 
   function onOptionClicked(option)  {
     props.setSelected(option);
     setIsOpen(false);
-    
   };
 
   return (
-    <Main>
-      <h1 onClick={toggling}>{props.selected?.value || "Escolha a diretoria"}</h1>
+    <Main onClick={toggling}>
+      <h1 >{props.selected?.value || "Escolha a diretoria"}</h1>
       <DropDownContainer>
        {isOpen 
         
@@ -99,17 +95,6 @@ export default function Select2(props) {
       :
       null
     }
-        {/* {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options.map(option => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )} */}
       </DropDownContainer>
     </Main>
   );
