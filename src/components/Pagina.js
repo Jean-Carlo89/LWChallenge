@@ -22,7 +22,8 @@ export default function App() {
   const [tableData,setTableData] = useState([])
   const [isLoading,setIsLoading] = useState(true)
   useEffect(()=>{
-    axios.get("https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/diretorias/")
+    console.log(process.env.REACT_APP_API_BASE_URL)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/diretorias/`)
     .then((response)=>{
      
      const newOptions = response.data.results.map((item)=>{
@@ -47,7 +48,7 @@ export default function App() {
   async function update(){
     if(selected===null) return
     setIsLoading(true)
-   await axios.get(`https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api/smeescolas/${selected?.initials}`)
+   await axios.get(`${process.env.REACT_APP_API_BASE_URL}/smeescolas/${selected?.initials}`)
     .then((response)=>{
 
       const filteredData = handleData(response.data.results)
