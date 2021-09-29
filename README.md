@@ -9,7 +9,7 @@ try out in (https://lw-challenge.vercel.app/)
 
    ### `npm i`
 
-5. create a .env like in .env.example (api:https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api)
+5. create a .env like in .env.example (api for .env: https://hom-escolaaberta.sme.prefeitura.sp.gov.br/api)
 6. Run the app with:
 
    ### `npm start`
