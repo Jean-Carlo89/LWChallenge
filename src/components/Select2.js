@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { IoMdArrowDropdown } from 'react-icons/io';
 
-const Main = styled("div")`
+const Main = styled.div`
   font-family: sans-serif;
   margin-top:120px;
   background: #f0f0f0;
@@ -28,14 +28,14 @@ const Main = styled("div")`
   }
 `;
 
-const DropDownContainer = styled("div")`
+const DropDownContainer = styled.div`
   width: 10.5em;
   width: 300px;
   z-index: 3;
   
 `;
 
-const DropDownHeader = styled("div")`
+const DropDownHeader = styled.div`
   margin-bottom: 0.8em;
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -45,11 +45,11 @@ const DropDownHeader = styled("div")`
   background: #ffffff;
 `;
 
-const DropDownListContainer = styled("div")`
+const DropDownListContainer = styled.div`
 margin-left: 0;
 `;
 
-const DropDownList = styled("ul")`
+const DropDownList = styled.ul`
   padding: 0;
   margin: 0;
   z-index:2;
@@ -64,13 +64,11 @@ const DropDownList = styled("ul")`
   }
 `;
 
-const ListItem = styled("li")`
+const ListItem = styled.li`
   list-style: none;
   z-index: 2;
   margin-bottom: 0.8em;
 `;
-
-//IoMdArrowDropdown
 
 export default function Select2(props) {
   const [isOpen, setIsOpen] = useState(false);
