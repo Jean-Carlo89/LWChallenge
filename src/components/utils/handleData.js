@@ -44,20 +44,6 @@ schools.forEach((school)=> {
      }
  })
 
- const aux = Object.keys(schoolTypes)
-
- const filteredData = aux.map((item)=>{
-    return schoolTypes[item]
- })
- console.log('schools')
- console.log(schools)
-//  console.log('schoolTypes')
-//  console.log(schoolTypes)
-//  console.log('filtered')
-//  console.log(filteredData)
- console.log(' new filtered')
- console.log(newFiltered)
-
  totalByStudents={...totalByStudents,type:"Total por estudante"}
  
 

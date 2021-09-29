@@ -1,18 +1,15 @@
 import {useState,useEffect} from 'react'
 import styled from "styled-components"
-import Header from "./Header"
 import axios from "axios"
+
+import Header from "./Header"
 import GlobalStyle from './GlobalStyles';
-//import Table from "./Table"
-import Table2 from "./Table2"
-//import Select from 'react-select';
-import Select2 from "./Select2"
+import Table from "./Table"
+import Select from "./Select"
 import handleData from "./utils/handleData"
 import Footer from "./Footer"
-
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./utils/loader.css"
 
 export default function App() {
@@ -22,7 +19,6 @@ export default function App() {
   const [tableData,setTableData] = useState([])
   const [isLoading,setIsLoading] = useState(true)
   useEffect(()=>{
-    console.log(process.env.REACT_APP_API_BASE_URL)
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/diretorias/`)
     .then((response)=>{
      
@@ -68,7 +64,7 @@ export default function App() {
     <GlobalStyle />
     <Container className="App">
      <Header/>
-     <Select2
+     <Select
           selected={selected}
           setSelected={setSelected}
           options={options}
@@ -89,12 +85,8 @@ export default function App() {
               />
           :
           <>
-          {/* <Select2
-          selected={selected}
-          setSelected={setSelected}
-          options={options}
-          /> */}
-          <Table2 data={tableData}/>
+          
+          <Table data={tableData}/>
           </>
 
         :
