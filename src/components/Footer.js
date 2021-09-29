@@ -12,7 +12,7 @@ export default function Footer(){
 const Container = styled.div`
 width: 100%;
 height: 80px;
-background-color: #120a8f;
+background-color: #A9A9A9;
 color: white;
 display: flex;
 align-items: center;

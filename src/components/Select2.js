@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 const Main = styled("div")`
   font-family: sans-serif;
@@ -11,6 +12,10 @@ const Main = styled("div")`
   width: fit-content;
   border-radius: 20px;
   margin: 10px;
+
+  svg{
+    font-size: 20px;
+  }
 
 
   h1{
@@ -65,7 +70,7 @@ const ListItem = styled("li")`
   margin-bottom: 0.8em;
 `;
 
-
+//IoMdArrowDropdown
 
 export default function Select2(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,10 +81,10 @@ export default function Select2(props) {
     props.setSelected(option);
     setIsOpen(false);
   };
-
+ 
   return (
     <Main onClick={toggling}>
-      <h1 >{props.selected?.value || "Escolha a diretoria"}</h1>
+      <h1 >{props.selected?.value || "TODAS AS DIRETORIAS" } <IoMdArrowDropdown/>  </h1>
       <DropDownContainer>
        {isOpen 
         
