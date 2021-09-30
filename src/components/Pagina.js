@@ -2,12 +2,12 @@ import {useState,useEffect} from 'react'
 import styled from "styled-components"
 import axios from "axios"
 
-import Header from "./Header"
+import Header from "./Cabecalho"
 import GlobalStyle from './GlobalStyles';
-import Table from "./Table"
+import Table from "./Tabela"
 import Select from "./Select"
 import handleData from "./utils/handleData"
-import Footer from "./Footer"
+import Footer from "./Rodape"
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./utils/loader.css"
@@ -46,7 +46,6 @@ export default function App() {
     setIsLoading(true)
    await axios.get(`${process.env.REACT_APP_API_BASE_URL}/smeescolas/${selected?.initials}`)
     .then((response)=>{
-
       const filteredData = handleData(response.data.results)
     
     setTableData(filteredData)

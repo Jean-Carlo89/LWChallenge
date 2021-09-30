@@ -31,7 +31,7 @@ export default function TableComponent({data}){
       <TableData inputColor={true}>1001 a 1500 estudantes</TableData>
       <TableData inputColor={true}> 1501 a 2000 estudantes</TableData>
       <TableData inputColor={true}>2001 a 2500 estudantes</TableData>
-      <TableData inputColor={true}>Mais de 2500 estudantes</TableData>
+      <TableData inputColor={true}>Mais que 2500 estudantes</TableData>
       <TableData inputColor={true}>Total de unidades escolares por tipo</TableData>
     </tr>
   </thead>
@@ -47,7 +47,7 @@ export default function TableComponent({data}){
           <TableData>{ !item.info["1001 a 1500 estudantes"] ? 0 : item.info["1001 a 1500 estudantes"]}</TableData>
           <TableData>{ !item.info["1501 a 2000 estudantes"] ? 0 : item.info["1501 a 2000 estudantes"]}</TableData>
           <TableData>{ !item.info["2001 a 2500 estudantes"] ? 0 : item.info["2001 a 2500 estudantes"]}</TableData>
-          <TableData>{ !item.info["Mais de 2500 estudantes"] ? 0 : item.info["Mais de 2500 estudantes"]}</TableData>
+          <TableData>{ !item.info["Mais que 2500 estudantes"] ? 0 : item.info["Mais que 2500 estudantes"]}</TableData>
           <TableData >{ !item.info["totalBytype"] ? 0 : item.info["totalBytype"]}</TableData>
         </tr>
       );
@@ -64,7 +64,7 @@ export default function TableComponent({data}){
       <TableData inputColor={true}> {!totals["1001 a 1500 estudantes"] ? 0 : totals["1001 a 1500 estudantes"]}</TableData>
       <TableData inputColor={true}> {!totals["1501 a 2000 estudantes"] ? 0 : totals["1501 a 2000 estudantes"]}</TableData>
       <TableData inputColor={true}> {!totals["2001 a 2500 estudantes"] ? 0 : totals["2001 a 2500 estudantes"]}</TableData>
-      <TableData inputColor={true}> {!totals["Mais de 2500 estudantes"] ? 0 : totals["Mais de 2500 estudantes"]}</TableData>
+      <TableData inputColor={true}> {!totals["Mais que 2500 estudantes"] ? 0 : totals["Mais que 2500 estudantes"]}</TableData>
       <TableData inputColor={true}> {totalSum}</TableData>
     </tr>
     :null
